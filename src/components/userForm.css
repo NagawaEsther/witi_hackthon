@@ -1,0 +1,188 @@
+
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+}
+
+header {
+    background-color: rgb(130, 168, 219);
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    flex-shrink: 0; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.signup-registration-container {
+    display: flex;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.signup-image-container {
+    flex: 1.5;
+    background-image: url('../children\ playing\ football.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+}
+
+.signup-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; 
+    justify-content: center;
+    padding: 20px; 
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.signup-form {
+    width: 100%; 
+    max-width: 400px;
+    padding: 30px;
+    box-sizing: border-box; 
+   
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form input[type="Date of birth"],
+.signup-form input[type="Contact Number"],
+.signup-form input[type="Address"],
+.signup-form input[type="Sports"]
+.signup-form select,
+.signup-form textarea {
+    width: 100%; 
+    padding: 11px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px; 
+    
+}
+.signup-form h1 {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+    text-align: left;
+}
+
+.signup-form input,
+.signup-form textarea,
+.signup-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.signup-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: #0056b3;
+}
+
+.signup-success-message {
+    color: green;
+}
+
+.signup-error-message {
+    color: red;
+}
+
+.signup-agreement,
+.signup-login {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #495057;
+    text-align: center; 
+    line-height: 1.5; 
+    padding: 10px; 
+   
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    display: flex;
+    flex: 1; 
+}
+
+
+
+.password-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+
+.password-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+    text-align: left; 
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 15px;
+    top: 100%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+}
+
+
+.signup-login a {
+    color: blue;
+    text-decoration: none; 
+}
+
+.signup-login a:visited {
+    color: blue; 
+}
+
+.signup-login a:hover {
+    text-decoration: underline; 
+}
+
+.signup-login a:active {
+    color: darkblue; 
+}

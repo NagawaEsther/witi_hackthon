@@ -1,0 +1,161 @@
+.homecontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch; 
+}
+
+.first-container,
+.second-container {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.second-container {
+  margin-left: 0; 
+}
+
+.my-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.my-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.my-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.button {
+  display: block;
+  text-align: center;
+  background-color: #004080;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #003366;
+}
+
+.home-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #004080;
+}
+
+.home-title > h6,
+.home-subtitle {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.home-title > h6 {
+  font-size: 50px;
+}
+
+.home-subtitle {
+  font-size: 30px;
+  color: #003366;
+}
+
+.home-text {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-top: 5px;
+  color: #333;
+  padding: 40px;
+}
+
+.additional-info {
+  margin-top: 20px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.accordion-header h4 {
+  margin: 0;
+  font-size: 20px;
+  color: blue;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+
+.accordion-item.open .accordion-content {
+  display: block;
+}
+
+.category-list {
+  margin-top: 10px;
+}
+
+.category-list p {
+  margin: 5px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #c0cbd4;
+  color: black;
+}
+
+footer a {
+  color: blue;
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: blue;
+}
+
+footer a:hover {
+  color: darkblue;
+}
