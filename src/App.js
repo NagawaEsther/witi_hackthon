@@ -17,7 +17,7 @@ import AboutUs from './components/about_us';
 import AdminDashboard from './components/admin_dashboard/admin_dashboard';
 import ProtectedRoute from './components/admin_dashboard/protected_routes';
 import { AuthProvider, AuthContext } from './components/admin_dashboard/auth_context';
-
+import SendMessages from './components/sendsms';
 
 import ProgramForm from './components/programForm';
 import ProgramAll from './components/backEnd.js/programAll';
@@ -104,10 +104,14 @@ function AppContent() {
         <Route path="/signup" element={<UserForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/about_us" element={<AboutUs />} />
+     
 
         {/* ProtectedRoutes */}
-        <Route element={<ProtectedRoute isAdminRoute={true} />}>
+        <Route element={<ProtectedRoute isAdminRoute={true} />}>  
           <Route path="/admin" element={<AdminDashboard />} />
+  
+          <Route path="/admin/SendMessages/send-sms" element ={<SendMessages />}/>
+         
           <Route path="/admin/programs/add" element={<ProgramForm />} />
           <Route path="/admin/programs/all" element={<ProgramAll />} />
           <Route path="/admin/program/id" element={<ProgramGet />} />
@@ -138,6 +142,7 @@ function AppContent() {
           <Route path="/admin/getspecific/user" element={<GetUserById />} />
           <Route path="/admin/update/user" element={<UpdateUser />} />
           <Route path="/admin/delete/user" element={<DeleteUser />} />
+         
         </Route>
       </Routes>
     </div>

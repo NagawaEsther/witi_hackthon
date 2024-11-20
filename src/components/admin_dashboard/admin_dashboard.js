@@ -179,6 +179,18 @@ const AdminDashboard = () => {
                   <Link to="delete/user">Delete a user</Link><br />
             </div>
           );
+
+
+          case 'SendMessages':
+            return (
+              <div className="links">
+                    <Link to="SendMessages/send-sms">Send sms and email</Link><br />
+              </div>
+            );
+  
+  
+  
+          
         default:
           return null;
       }
@@ -221,6 +233,10 @@ const AdminDashboard = () => {
               <li onClick={() => toggleSection('Users')}>
                 Users <span>{expandedSection === 'Users' ? '▼' : '▶'}</span>
               </li>
+
+              <li onClick={() => toggleSection('SendMessages')}>
+                Send SMS and Emails <span>{expandedSection === 'SendMessages' ? '▼' : '▶'}</span>
+              </li>
             </ul>
           </nav>
           <br/>
@@ -234,6 +250,7 @@ const AdminDashboard = () => {
           {renderLinks('Gallery')}
           {renderLinks('Donations')}
           {renderLinks('Users')}
+          {renderLinks('SendMessages')}
         </main>
       </div>
     </div>
