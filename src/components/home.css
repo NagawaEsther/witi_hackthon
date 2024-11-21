@@ -1,167 +1,4 @@
-/* .homecontainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch; 
-}
-
-.first-container,
-.second-container {
-  flex: 1;
-  min-width: 300px;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.second-container {
-  margin-left: 0; 
-}
-
-.my-image-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.my-image {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.my-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: auto;
-}
-
-.button {
-  display: block;
-  text-align: center;
-  background-color: #004080;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: #003366;
-}
-
-.home-title {
-  font-size: 50px;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  color: #004080;
-}
-
-.home-title > h6,
-.home-subtitle {
-  margin-top: 5px;
-  margin-bottom: 0;
-}
-
-.home-title > h6 {
-  font-size: 50px;
-}
-
-.home-subtitle {
-  font-size: 30px;
-  color: #003366;
-}
-
-.home-text {
-  font-size: 22px;
-  line-height: 1.5;
-  margin-top: 5px;
-  color: #333;
-  padding: 40px;
-}
-
-.additional-info {
-  margin-top: 20px;
-}
-
-.accordion-item {
-  border-bottom: 1px solid #ccc;
-}
-
-.accordion-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.accordion-header h4 {
-  margin: 0;
-  font-size: 20px;
-  color: blue;
-}
-
-.accordion-content {
-  display: none;
-  padding: 10px;
-}
-
-.accordion-item.open .accordion-content {
-  display: block;
-}
-
-.category-list {
-  margin-top: 10px;
-}
-
-.category-list p {
-  margin: 5px 0;
-  font-size: 20px;
-  color: #333;
-}
-
-
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #c0cbd4;
-  color: black;
-}
-
-footer a {
-  color: blue;
-  text-decoration: none;
-}
-
-footer a:visited {
-  color: blue;
-}
-
-footer a:hover {
-  color: darkblue;
-} */
-
-
-/* General Reset and Body Styles */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -175,100 +12,242 @@ body {
   line-height: 1.6;
 }
 
-/* Home Container */
-.homecontainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  text-align: center;
-}
-
-/* Second Container (Image + Text) */
-.second-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Top Background Section */
+.background-section {
   width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-position: center 25%;
   position: relative;
-  height: 80vh;
-  object-position: left;
-  
 }
 
-/* Stretch the Image to Cover the Area */
-.my-image img {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  object-position: left;
-}
-
-/* Words Section */
-.Word {
+.background-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-  margin: 0;
-  line-height: 1.4;
-  padding: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Buttons */
-.buttons {
-  margin-top: 20px;
+.background-text h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.background-text p {
+  font-size: 1.2rem;
+  /* color: rgb(255, 145, 0); */
+}
+
+/* Slider Section */
+.slider-container {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Cards Section */
+.cards-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.cards-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.cards-container {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-.button {
-  background-color:orange;
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  flex: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
 }
 
-.button:hover {
-  background-color: green;
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #060606;
 }
+
+.card p {
+  font-size: 1rem;
+  color: #050505;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Moves the card slightly upward */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Adds a slightly larger shadow */
+}
+
 
 /* Footer */
 footer {
-  background-color:black;
+  background-color: black;
   color: white;
   padding: 20px;
   text-align: center;
-  margin-top: 20px;
 }
 
 footer a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
 }
 
 footer a:hover {
   text-decoration: underline;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
-  .Word {
-    font-size: 18px;
-    padding: 5px;
+  .background-text h1 {
+    font-size: 2rem;
   }
 
-  .buttons {
+  .background-text p {
+    font-size: 1rem;
+  }
+
+  .cards-container {
     flex-direction: column;
   }
+}
+
+/* Heading Section */
+.heading-section {
+  padding: 20px 0;
+  text-align: left;
+  background-color: #f4f4f4;
+}
+
+.heading-section h2 {
+  font-size: 45px;
+  margin-bottom: 10px;
+  color: hsl(37, 95%, 44%);
+  text-align: left;
+  text-shadow: 2px 2px 5px rgba(44, 43, 43, 0.7);
+  font-weight: bolder;
+  padding-left: 3%;
+}
+
+.heading-section p{
+  font-size: 20px;
+  padding-left: 3%;
+}
+
+
+/* Brenda Card */
+.brenda-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Brenda Image */
+.brenda-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Miss Brenda Card Section */
+.brenda-card {
+  padding: 40px 20px;
+  background-color: #fff;
+  margin-top: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.brenda-card h2 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.brenda-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brenda-image {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.brenda-text {
+  max-width: 500px;
+  text-align: left;
+}
+
+
+/* Angellah Card */
+.card-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Angellah Image */
+.card-section img {
+  
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Angellah Text Section */
+.card-text {
+  flex: 1;
+  margin-left: 20px;
+  text-align: justify;
+}
+
+.card-text h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card-text p {
+  font-size: 1rem;
+  line-height: 1.5;
 }
