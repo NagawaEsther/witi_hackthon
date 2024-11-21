@@ -56,6 +56,18 @@
     height: 100vh; /* Ensure dashboard covers the entire viewport height */
   }
   
+
+
+  .admin-dashboard-header {
+    background-color: orange; /* Orange background */
+    color: white; /* White text */
+    text-align: center; /* Center align text */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 5px; /* Optional: Rounded corners */
+    font-family: Arial, sans-serif; /* Optional: Set font */
+    font-size: 24px; /* Adjust font size */
+  }
+  
   .dashboard-content {
     display: flex;
     justify-content: center;
@@ -69,7 +81,7 @@
     padding: 750px;
     height: 90%; 
     /* color:darkblue; */
-    background-color: #333;
+    background-color:orange;
   }
   
   .sidebar nav ul {

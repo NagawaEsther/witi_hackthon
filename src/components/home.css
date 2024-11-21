@@ -1,4 +1,4 @@
-.homecontainer {
+/* .homecontainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -158,4 +158,117 @@ footer a:visited {
 
 footer a:hover {
   color: darkblue;
+} */
+
+
+/* General Reset and Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Home Container */
+.homecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Second Container (Image + Text) */
+.second-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  height: 80vh;
+  object-position: left;
+  
+}
+
+/* Stretch the Image to Cover the Area */
+.my-image img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: left;
+}
+
+/* Words Section */
+.Word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.4;
+  padding: 10px;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  background-color:orange;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: green;
+}
+
+/* Footer */
+footer {
+  background-color:black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .Word {
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }

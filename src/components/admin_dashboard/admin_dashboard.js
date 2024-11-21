@@ -200,11 +200,11 @@ const AdminDashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <header>
-        <h1>Welcome to Admin Dashboard</h1>
-       
-      </header>
-
+    
+      <div className="admin-dashboard-header">
+          <h1>Welcome to Admin Dashboard</h1>
+      </div>
+      
       <br/>
       <div className="dashboard-content">
         <aside className="sidebar">
@@ -240,7 +240,7 @@ const AdminDashboard = () => {
             </ul>
           </nav>
           <br/>
-          <button onClick={handleLogout} style={{ backgroundColor: 'blue', color: '#fff', padding: '10px', border: 'none', cursor: 'pointer' }}>Logout</button>
+          <button onClick={handleLogout} style={{ backgroundColor: 'orange', color: '#fff', padding: '10px', border: 'none', cursor: 'pointer' }}>Logout</button>
 
         </aside>
         <main className="main-content">

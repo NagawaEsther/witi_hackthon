@@ -2,7 +2,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import logo from './WhatsApp_Image_2024-06-11_at_11.12.34_9ad8ac49-removebg-preview.png';
+// import logo from './WhatsApp_Image_2024-06-11_at_11.12.34_9ad8ac49-removebg-preview.png';
+// import logo from './at witi.jpg';
+import logo from './1.jpg';
+import Header from  './components/header';
+
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import ProgramList from './components/program';
@@ -66,32 +70,7 @@ function AppContent() {
 
   return (
     <div className="App">
-      {!isAdminRoute && 
-      (
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-      
-
-<Navbar bg="light" expand="lg">
-    
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Nav.Link>
-          <Nav.Link as={Link} to="/our_services" className={location.pathname === '/our_services' ? 'active' : ''}>Services</Nav.Link>
-          <Nav.Link as={Link} to="/about_us" className={location.pathname === '/about_us' ? 'active' : ''}>About Us</Nav.Link>
-          <Nav.Link as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</Nav.Link>
-          <NavDropdown title="Contact Us" id="contact-us-dropdown">
-            <NavDropdown.Item as={Link} to="/contact_inquiry">Contact Inquiry</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/donations">Donations</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-     
-    </Navbar>
-    
-       
-        </header>
-
-
-      )}
+      {!isAdminRoute && <Header />}
       
       <Routes>
         <Route path="/" element={<Dashboard />} />

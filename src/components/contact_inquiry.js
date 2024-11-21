@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './contact_inquiry.css';
+import React, { useState } from "react";
+import axios from "axios";
+import "./contact_inquiry.css";
 
-
-const ContactInquiryList = () => {
+const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +20,7 @@ const ContactInquiryList = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log('Submitting inquiry:', formData); 
+      console.log('Submitting inquiry:', formData);
       const response = await axios.post('http://127.0.0.1:5000/api/v1/contact-inquiry/create', formData);
       console.log('Inquiry submitted:', response.data);
       alert('Inquiry submitted successfully!');
@@ -38,35 +37,51 @@ const ContactInquiryList = () => {
   };
 
   return (
-    <div>
-      <header>
-        <h1>Hope Field Sports Academy</h1>
-      </header>
-      
-      <div className="contact-container">
-        <div className="contact-content">
-          <section id="contact">
-            <h2>Contact Information</h2>
-            <p>You can contact us by phone or visit us at the following address:</p>
-            <p>Phone: 0773920004</p>
-            <p>Address: Wampeewo-Kasangati, along Gayaza road</p>
-            <h2>Get Directions</h2>
-            <div id="map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88863.42053396728!2d32.51273234208167!3d0.44090996493321005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177db16b644bd265%3A0x3a4337296ca4adce!2sWampeewo%20Play%20Ground!5e0!3m2!1sen!2sug!4v1715694976528!5m2!1sen!2sug"
-                width="600"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+    <div className="contact-us-container">
+      {/* Header Section */}
+      <div className="header-section">
+        <h1>Contact Us</h1>
+        <p>Any questions or remarks? Just write us a message!</p>
+      </div>
+
+      <div className="content-section">
+        {/* Left Column: Office Details and Image */}
+        <div className="office-details">
+          <img
+            src="https://pbs.twimg.com/media/Ga0M-33bwAAMWb2?format=jpg&name=4096x4096"
+            alt="Office Team"
+            className="office-image"
+          />
+          <div className="locations">
+            <div>
+              <h4>
+                <i className="fas fa-map-marker-alt"></i>
+              </h4>
+              <p>Java House, Sixth Street, Kampala, Acacia Place Level 4</p>
             </div>
-          </section>
+            <div>
+              <h4>
+                <i className="fas fa-phone-alt"></i>
+              </h4>
+              <p>0708094298</p>
+            </div>
+            <div>
+              <h4>
+                <i className="fas fa-envelope"></i>
+              </h4>
+              <p>community@africa'stalking.com</p>
+            </div>
+          </div>
         </div>
-        <div className="sidebar">
-          <h2>Contact Form</h2>
-          <form id="contact-form" onSubmit={handleFormSubmit}>
+
+        {/* Right Column: Contact Form */}
+        <div className="contact-form">
+          <h2>Get in Touch</h2>
+          <p>
+            Have an inquiry or some feedback for us? Fill out the form below to
+            contact our team.
+          </p>
+          <form onSubmit={handleFormSubmit}>
             <div>
               <label htmlFor="name">Your Name:</label>
               <input
@@ -111,20 +126,50 @@ const ContactInquiryList = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <div className="button-container">
+  <button
+    type="submit"
+    className="submit-button"
+    style={{
+      backgroundColor: '#fc9206',
+      color: 'white',
+      padding: '12px 24px',
+      fontSize: '16px',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer'
+    }}
+  >
+    Submit
+  </button>
+</div>
+
+
           </form>
         </div>
       </div>
-      <footer>
-                <p>&copy; 2024 Hope Field Sports Academy. All rights reserved.</p>
-                <p>Follow us: 
-                    <a href="https://www.facebook.com/share/Twq8omBJeJzZ8wQs/?mibextid=qi2Omg"><i className="fab fa-facebook"></i> Facebook</a> | 
-                    <a href="https://x.com/FieldHope63621?t=uqHTTjp-eBYYLJmP4X_k0w&s=09"><i className="fab fa-twitter"></i> Twitter</a> | 
-                    <a href="https://instagram.com"><i className="fab fa-instagram"></i> Instagram</a>
-                </p> 
-            </footer>
+
+      {/* Google Map Section */}
+      <div className="map-section">
+        <h2>Get Directions</h2>
+        <div id="map">
+      
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7494585427276!2d32.58494940773231!3d0.33662849965865643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbba6a3b570c7%3A0xf292f51f1d7be494!2sJava%20House!5e0!3m2!1sen!2sug!4v1732185775212!5m2!1sen!2sug" 
+width="1350"
+ height="500"
+ style={{ border: 0 }}
+  allowfullscreen=""
+   loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+
+    </iframe>
+        </div>
+      </div>
+
+     
     </div>
   );
 };
 
-export default ContactInquiryList;
+export default ContactUs;
+

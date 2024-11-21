@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './sendsms.css';
 
 const SendMessages = () => {
   const [phoneNumbers, setPhoneNumbers] = useState("");
@@ -133,12 +134,18 @@ const SendMessages = () => {
         </div>
         
         {/* Submit button */}
-        <button type="submit" className="button">
-          Send {messageType === "sms" ? "SMS" : "Email"}
-        </button>
-      </form>
+        <div
+          role="button"
+          className="click"
+          onClick={handleSendMessages}
+          tabIndex={0}
+                        >
+      Send {messageType === "sms" ? "SMS" : "Email"}
+</div>
 
-      {/* Display response or error */}
+      </form>
+{/* 
+      Display response or error */}
       {response && <p className="success">{response}</p>}
       {error && <p className="error">{error}</p>}
     </div>
