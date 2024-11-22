@@ -33,7 +33,7 @@ const EventsPage = () => {
               {events.map((event) => (
                 <div className="event-card" key={event.id}>
                   <img
-                    src={event.image_url || 'default-banner.jpg'} // Fallback to a default image
+                    src={event.image_url || 'default-banner.jpg'} 
                     alt={event.name}
                     className="event-banner"
                   />
