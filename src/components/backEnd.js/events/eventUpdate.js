@@ -52,6 +52,8 @@ const EventUpdate = () => {
       });
       setFormData(response.data);
       alert('Event updated successfully!');
+      // Reset form after success
+      setFormData(null);
     } catch (error) {
       console.error('Error updating event:', error.response ? error.response.data : error.message);
       setError('Error updating event. Please try again.');
@@ -110,50 +112,44 @@ const EventUpdate = () => {
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="eventTime">Event Time:</label>
+           
+           
+            <div>
+            <label>
+              Image URL:
               <input
-                type="time"
-                id="eventTime"
-                name="time"
-                value={formData.time ? formData.time.slice(0, 5) : ''}
-                onChange={handleFieldChange}
+                type="url"
+                name="image_url"
+                value={formData.image_url}
+                onChange={handleInputChange}
+                placeholder="Enter image link"
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              Upload Image:
+              <input
+                type="file"
+                name="image"
+                accept="image/*"
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              RSVP Link:
+              <input
+                type="url"
+                name="rsvp_link"
+                value={formData.rsvp_link}
+                onChange={handleInputChange}
                 required
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="eventLocation">Event Location:</label>
-              <input
-                type="text"
-                id="eventLocation"
-                name="location"
-                value={formData.location || ''}
-                onChange={handleFieldChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>
-                <input
-                  type="checkbox"
-                  name="registration_required"
-                  checked={formData.registration_required || false}
-                  onChange={(e) => setFormData({ ...formData, registration_required: e.target.checked })}
-                />
-                Registration Required
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="maxParticipants">Max Participants:</label>
-              <input
-                type="number"
-                id="maxParticipants"
-                name="max_participants"
-                value={formData.max_participants || ''}
-                onChange={handleFieldChange}
-                required
-              />
-            </div>
+            </label>
+          </div>
             <button type="submit" disabled={loading}>
               {loading ? 'Updating...' : 'Update Event'}
             </button>

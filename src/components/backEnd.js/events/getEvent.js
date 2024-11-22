@@ -26,12 +26,11 @@ const GetEventById = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('Event data:', response.data);
       setEventData(response.data);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching event:', error.response ? error.response.data : error.message);
       setError('Error fetching event. Please check the ID and try again.');
+    } finally {
       setLoading(false);
     }
   };
@@ -56,22 +55,11 @@ const GetEventById = () => {
           <div className="event-details">
             <h3>{eventData.name}</h3>
             <p>{eventData.description}</p>
-            <p>
-              <strong>Date:</strong> {eventData.date}
-            </p>
-            <p>
-              <strong>Time:</strong> {eventData.time}
-            </p>
-            <p>
-              <strong>Location:</strong> {eventData.location}
-            </p>
-            <p>
-              <strong>Registration Required:</strong>{' '}
-              {eventData.registration_required ? 'Yes' : 'No'}
-            </p>
-            <p>
-              <strong>Max Participants:</strong> {eventData.max_participants}
-            </p>
+            <p><strong>Date:</strong> {eventData.date}</p>
+            <p><strong>Time:</strong> {eventData.time}</p>
+            <p><strong>Location:</strong> {eventData.location}</p>
+            <p><strong>Registration Required:</strong> {eventData.registration_required ? 'Yes' : 'No'}</p>
+            <p><strong>Max Participants:</strong> {eventData.max_participants}</p>
           </div>
         )}
       </section>

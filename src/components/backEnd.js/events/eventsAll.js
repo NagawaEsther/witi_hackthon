@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../getall.css'
+import '../getall.css';
 
 const EventAll = () => {
   const [events, setEvents] = useState(null);
@@ -25,7 +25,6 @@ const EventAll = () => {
     fetchEvents();
   }, [token]);
 
-  
   return (
     <div>
       <section id="event-list">
@@ -42,10 +41,8 @@ const EventAll = () => {
                   <th>Name</th>
                   <th>Description</th>
                   <th>Date</th>
-                  <th>Time</th>
-                  <th>Location</th>
-                  <th>Registration Required</th>
-                  <th>Max Participants</th>
+                  <th>Image</th>
+                  <th>RSVP Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,10 +51,31 @@ const EventAll = () => {
                     <td>{event.name}</td>
                     <td>{event.description}</td>
                     <td>{event.date}</td>
-                    <td>{event.time}</td>
-                    <td>{event.location}</td>
-                    <td>{event.registration_required ? 'Yes' : 'No'}</td>
-                    <td>{event.max_participants}</td>
+                    <td>
+                      {event.image_url ? (
+                        <img
+                          src={event.image_url}
+                          alt={event.name}
+                          style={{ width: '100px', height: 'auto' }}
+                        />
+                      ) : (
+                        'No Image Available'
+                      )}
+                    </td>
+                    <td>
+                      {event.rsvp_link ? (
+                        <a
+                          href={event.rsvp_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rsvp-link"
+                        >
+                          RSVP Here
+                        </a>
+                      ) : (
+                        'No RSVP Link'
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -65,7 +83,6 @@ const EventAll = () => {
           )}
         </div>
       </section>
-  
     </div>
   );
 };

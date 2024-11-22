@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  background: #f3b569;
+  background:  hsl(24, 98%, 52%);
   color: white;
 }
 
@@ -39,6 +39,7 @@ body {
   max-width: 1200px;
   width: 100%;
   background: #f3b569;
+  /* background-color: (24, 98%, 52%); */
   border-radius: 12px;
   padding: 20px;
   flex-wrap: wrap;
@@ -165,7 +166,7 @@ body {
   /* background: linear-gradient(135deg, #ec4899, #f97316); */
   border: none;
   border-radius: 8px;
-  background-color: #ec9b35;
+  background-color: hsl(24, 98%, 52%);
   cursor: pointer;
   transition: transform 0.3s ease;
 }

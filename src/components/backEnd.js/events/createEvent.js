@@ -4,22 +4,22 @@ import axios from 'axios';
 const CreateEvent = () => {
   const [formData, setFormData] = useState({
     name: '',
-    description: '',
     date: '',
-    time: '',
-    location: '',
-    registration_required: false,
-    max_participants: ''
+    description: '',
+    image_url: '', 
+    image: null, 
+    rsvp_link: '',
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
+
   const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
+    const { name, value, type, files } = e.target;
+    const newValue = type === 'file' ? files[0] : value;
     setFormData({
       ...formData,
-      [name]: newValue
+      [name]: newValue,
     });
   };
 
@@ -27,15 +27,25 @@ const CreateEvent = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/v1/event/create', {
-        name: formData.name,
-        description: formData.description,
-        date: formData.date,
-        time: formData.time,
-        location: formData.location,
-        registration_required: formData.registration_required,
-        max_participants: parseInt(formData.max_participants)
-      });
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('date', formData.date);
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('image_url', formData.image_url); 
+      if (formData.image) {
+        formDataToSend.append('image', formData.image); 
+      }
+      formDataToSend.append('rsvp_link', formData.rsvp_link);
+
+      const response = await axios.post(
+        'http://127.0.0.1:5000/api/v1/event/create',
+        formDataToSend,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
       console.log('Event created successfully:', response.data);
       setSuccess(true);
       setError(null);
@@ -51,7 +61,7 @@ const CreateEvent = () => {
     <div className="event-container">
       <section id="create-event">
         <h2>Create New Event</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div>
             <label>
               Event Name:
@@ -59,17 +69,6 @@ const CreateEvent = () => {
                 type="text"
                 name="name"
                 value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Description:
-              <textarea
-                name="description"
-                value={formData.description}
                 onChange={handleInputChange}
                 required
               />
@@ -89,11 +88,10 @@ const CreateEvent = () => {
           </div>
           <div>
             <label>
-              Time:
-              <input
-                type="time"
-                name="time"
-                value={formData.time}
+              Description:
+              <textarea
+                name="description"
+                value={formData.description}
                 onChange={handleInputChange}
                 required
               />
@@ -101,41 +99,54 @@ const CreateEvent = () => {
           </div>
           <div>
             <label>
-              Location:
+              Image URL:
               <input
-                type="text"
-                name="location"
-                value={formData.location}
+                type="url"
+                name="image_url"
+                value={formData.image_url}
                 onChange={handleInputChange}
-                required
+                placeholder="Enter image link"
               />
             </label>
           </div>
           <div>
             <label>
-              Registration Required:
+              Upload Image:
               <input
-                type="checkbox"
-                name="registration_required"
-                checked={formData.registration_required}
+                type="file"
+                name="image"
+                accept="image/*"
                 onChange={handleInputChange}
               />
             </label>
           </div>
           <div>
             <label>
-              Max Participants:
+              RSVP Link:
               <input
-                type="number"
-                name="max_participants"
-                value={formData.max_participants}
+                type="url"
+                name="rsvp_link"
+                value={formData.rsvp_link}
                 onChange={handleInputChange}
                 required
               />
             </label>
           </div>
 
-          <button type="submit" style={{ width: '100px', padding: '10px 20px', backgroundColor: 'blue', color: 'white', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Submit</button>
+          <button
+            type="submit"
+            style={{
+              width: '100px',
+              padding: '10px 20px',
+              backgroundColor: 'blue',
+              color: 'white',
+              borderRadius: '5px',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            Submit
+          </button>
         </form>
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">Event created successfully!</p>}
@@ -145,3 +156,5 @@ const CreateEvent = () => {
 };
 
 export default CreateEvent;
+
+

@@ -64,14 +64,6 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            <footer>
-                <p>&copy; 2024 Hope Field Sports Academy. All rights reserved.</p>
-                <p>Follow us: 
-                    <a href="https://www.facebook.com/share/Twq8omBJeJzZ8wQs/?mibextid=qi2Omg"><i className="fab fa-facebook"></i> Facebook</a> | 
-                    <a href="https://x.com/FieldHope63621?t=uqHTTjp-eBYYLJmP4X_k0w&s=09"><i className="fab fa-twitter"></i> Twitter</a> | 
-                    <a href="https://instagram.com"><i className="fab fa-instagram"></i> Instagram</a>
-                </p> 
-            </footer>
         </>
     );
 };

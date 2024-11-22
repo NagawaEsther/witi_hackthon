@@ -1,5 +1,5 @@
 .donation-container {
-  background-color: #f7b852;
+  background-color: hsl(24, 98%, 52%);
   min-height: 100vh;
   padding: 20px;
   font-family: sans-serif;
@@ -38,7 +38,7 @@ header h1 {
 }
 
 .payment-button.active {
-  background-color: orange;
+  background-color: hsl(24, 98%, 52%);
   color: white;
 }
 
@@ -61,7 +61,7 @@ textarea {
 }
 
 .submit-button {
-  background-color: orange;
+  background-color: hsl(24, 98%, 52%);
   color: white;
   padding: 12px;
   border: none;
