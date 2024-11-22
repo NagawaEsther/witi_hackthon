@@ -1,67 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './events.css';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import './events.css'
+import banner from '../banner.jpg'
 
-const EventList = () => {
-  const [events, setEvents] = useState(null); 
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/v1/event/events'); 
-        setEvents(response.data.events); 
-      } catch (error) {
-        console.error('Error fetching events:', error);
-        setEvents([]); 
-      }
-    };
-
-    fetchEvents(); 
-  }, []);
+const EventsPage = () => {
+  const [activeTab, setActiveTab] = useState('upcoming');
 
   return (
-    <div>
-      <header>
-        <h1>Updates on upcoming events, competitions, and academy news.</h1>
-      </header>
+    <section id="events" className="events">
+      <div className="event-form">
+        {/* <h2>Upcoming Events</h2> */}
+        {/* Tabs for Events */}
+        <div className="event-tabs">
+          <button
+            className={`tab-btn ${activeTab === 'upcoming' ? 'active' : ''}`}
+            onClick={() => setActiveTab('upcoming')}
+          >
+            Upcoming Events
+          </button>
+        </div>
 
-      <section id="events-news">
-        
-        <div className="event-list-container">
-          {events === null ? (
-            <p>Loading events...</p>
-          ) : events.length === 0 ? (
-            <p>No events available.</p>
-          ) : (
-            events.map((event) => (
-              <div className="event-item" key={event.id}>
-                <div className="event-details">
-                  <h3>{event.name}</h3>
-                  <p>{event.description}</p>
-                  <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
-                  <p><strong>Time:</strong> {event.time}</p>
-                  <p><strong>Location:</strong> {event.location}</p>
-                  <p><strong>Registration Required:</strong> {event.registration_required ? 'Yes' : 'No'}</p>
-                  {event.max_participants && (
-                    <p><strong>Max Participants:</strong> {event.max_participants}</p>
-                  )}
-                </div>
+        {/* Event Details */}
+        <div className="event-details">
+          {activeTab === 'upcoming' && (
+            <div className="event-list upcoming-events">
+              <h3>Upcoming Events</h3>
+              <div className="event-card">
+                <img
+                  src={banner} // Use the imported image variable
+                  alt="Tech Conference 2024"
+                  className="event-banner"
+                />
+                <h4>Tech Conference 2024</h4>
+                <p><strong>Date:</strong> January 15, 2024</p>
+                <p><strong>Description:</strong> Discover innovations and network with tech leaders.</p>
+                {/* RSVP Button */}
+                <Link to="https://community.elarian.com/e/mvvvt5/" className="rsvp-btn">RSVP</Link>
               </div>
-            ))
+              <div className="event-card">
+                <img
+                  src={banner} // Use the imported image variable
+                  alt="Coding Bootcamp"
+                  className="event-banner"
+                />
+                <h4>Coding Bootcamp</h4>
+                <p><strong>Date:</strong> February 10, 2024</p>
+                <p><strong>Description:</strong> Learn coding skills with hands-on workshops.</p>
+                {/* RSVP Button */}
+                <Link to="https://community.elarian.com/e/mvvvt5/" className="rsvp-btn">RSVP</Link>
+              </div>
+            </div>
           )}
         </div>
-      </section>
-
-      <footer>
-                <p>&copy; 2024 Hope Field Sports Academy. All rights reserved.</p>
-                <p>Follow us: 
-                    <a href="https://www.facebook.com/share/Twq8omBJeJzZ8wQs/?mibextid=qi2Omg"><i className="fab fa-facebook"></i> Facebook</a> | 
-                    <a href="https://x.com/FieldHope63621?t=uqHTTjp-eBYYLJmP4X_k0w&s=09"><i className="fab fa-twitter"></i> Twitter</a> | 
-                    <a href="https://instagram.com"><i className="fab fa-instagram"></i> Instagram</a>
-                </p> 
-            </footer>
-    </div>
+      </div>
+    </section>
   );
 };
 
-export default EventList;
+export default EventsPage;

@@ -1,7 +1,7 @@
-General Styling
+/* General Styling */
 body {
   margin: 0;
-  font-family:  Montserrat, sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #f3f4f6;
 }
 
@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  /* background: #f3b569; */
+  background: #f3b569;
   color: white;
 }
 
@@ -25,15 +25,11 @@ body {
   font-weight: 600;
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  color:black;
-  font-family:  Montserrat, sans-serif;
 }
 
 .header-section p {
   font-size: 18px;
   opacity: 0.9;
-  color:black;
-  font-family:  Montserrat, sans-serif;
 }
 
 /* Content Section */
@@ -124,14 +120,12 @@ body {
   color: #333;
   margin-bottom: 15px;
   font-weight: 600;
-  font-family:  Montserrat, sans-serif;
 }
 
 .contact-form p {
   font-size: 16px;
   color: black;
   margin-bottom: 20px;
-  font-family:  Montserrat, sans-serif;
 }
 
 .contact-form form {
@@ -149,7 +143,6 @@ body {
   border-radius: 8px;
   background-color: #ffffff;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  font-family:  Montserrat, sans-serif;
 }
 
 .contact-form input:focus,
@@ -164,21 +157,15 @@ body {
   height: 150px;
 }
 
-.contact-form label {
-  font-family: Montserrat, sans-serif;
-  font-size: 16px;  /* Adjust as needed */
-  color: black;  /* Adjust color if needed */
-}
-
-
 .contact-form button {
   padding: 15px;
   font-size: 16px;
   font-weight: 600;
   color: white;
-  background-color: #fc9206;
+  /* background: linear-gradient(135deg, #ec4899, #f97316); */
   border: none;
   border-radius: 8px;
+  background-color: #ec9b35;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -186,16 +173,6 @@ body {
 .contact-form button:hover {
   transform: translateY(-3px);
 }
-
-.map-section h2 {
-  font-size: 28px;  /* Size of the heading */
-  color:black;
-  font-weight: bold;  /* Bold font */
-  margin-bottom: 20px;  /* Space below the heading */
-  font-family:  Montserrat, sans-serif;
-}
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -210,9 +187,5 @@ body {
 
   .locations div {
     margin-bottom: 15px;
-  }
-
-  .map-container {
-    height: 300px;
   }
 }

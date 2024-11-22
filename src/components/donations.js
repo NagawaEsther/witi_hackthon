@@ -1,291 +1,5 @@
-
-
-// // import React, { useState } from 'react';
-// // import axios from 'axios';
-// // import './donations.css'; 
-
-// // const DonationList = () => {
-// //   const [formData, setFormData] = useState({
-// //     donor_name: '',
-// //     donor_email: '',
-// //     donation_amount: '',
-// //     message: ''
-// //   });
-
-// //   const handleChange = (e) => {
-// //     setFormData({
-// //       ...formData,
-// //       [e.target.name]: e.target.value
-// //     });
-// //   };
-
-// //   const handleDonationSubmit = async (event) => {
-// //     event.preventDefault();
-// //     try {
-// //       console.log('Submitting donation:', formData);
-// //       const response = await axios.post('http://127.0.0.1:5000/api/v1/donation/create', formData);
-// //       console.log('Donation submitted:', response.data);
-// //       alert('Donation submitted successfully!');
-// //       setFormData({
-// //         donor_name: '',
-// //         donor_email: '',
-// //         donation_amount: '',
-// //         message: ''
-// //       });
-// //     } catch (error) {
-// //       console.error('Donation failed:', error.response ? error.response.data : error.message);
-// //       alert('Donation failed: Please check your details and try again.');
-// //     }
-// //   };
-
-// //   return (
-// //     <div>
-// //       <header>
-// //         <h1>Hope Field Sports Academy</h1>
-// //       </header>
-
-// //       <div className="donation-container">
-// //         <div className="donation-content">
-// //           <h2>Bank Account Details</h2>
-// //           <div className="details-content">
-// //             <h3>Account Name:</h3>
-// //             <p>Hope Field Sports Academy</p>
-// //             <h3>Account Number:</h3>
-// //             <p>123456789</p>
-// //             <h3>Bank:</h3>
-// //             <p>ABC Bank</p>
-// //             <h3>Branch:</h3>
-// //             <p>Downtown</p>
-// //             <h3>SWIFT Code:</h3>
-// //             <p>ABCD1234</p>
-// //           </div>
-// //         </div>
-
-// //         <div className="sidebar">
-// //           <h2>Donor Details</h2>
-// //           <form onSubmit={handleDonationSubmit}>
-// //             <div className="form-group">
-// //               <label htmlFor="donorName">Your Name:</label>
-// //               <input
-// //                 type="text"
-// //                 id="donorName"
-// //                 name="donor_name"
-// //                 value={formData.donor_name}
-// //                 onChange={handleChange}
-// //                 required
-// //               />
-// //             </div>
-// //             <div className="form-group">
-// //               <label htmlFor="donorEmail">Your Email:</label>
-// //               <input
-// //                 type="email"
-// //                 id="donorEmail"
-// //                 name="donor_email"
-// //                 value={formData.donor_email}
-// //                 onChange={handleChange}
-// //                 required
-// //               />
-// //             </div>
-// //             <div className="form-group">
-// //               <label htmlFor="donationAmount">Donation Amount:</label>
-// //               <input
-// //                 type="number"
-// //                 id="donationAmount"
-// //                 name="donation_amount"
-// //                 value={formData.donation_amount}
-// //                 onChange={handleChange}
-// //                 min="0"
-// //                 step="0.01"
-// //                 required
-// //               />
-// //             </div>
-// //             <div className="form-group">
-// //               <label htmlFor="message">Message:</label>
-// //               <textarea
-// //                 id="message"
-// //                 name="message"
-// //                 value={formData.message}
-// //                 onChange={handleChange}
-// //               ></textarea>
-// //             </div>
-// //             <button type="submit" className="submit-button">Submit</button>
-// //           </form>
-// //         </div>
-// //       </div>
-
-// //       <footer>
-// //                 <p>&copy; 2024 Hope Field Sports Academy. All rights reserved.</p>
-// //                 <p>Follow us: 
-// //                     <a href="https://www.facebook.com/share/Twq8omBJeJzZ8wQs/?mibextid=qi2Omg"><i className="fab fa-facebook"></i> Facebook</a> | 
-// //                     <a href="https://x.com/FieldHope63621?t=uqHTTjp-eBYYLJmP4X_k0w&s=09"><i className="fab fa-twitter"></i> Twitter</a> | 
-// //                     <a href="https://instagram.com"><i className="fab fa-instagram"></i> Instagram</a>
-// //                 </p> 
-// //             </footer>
-// //     </div>
-// //   );
-// // };
-
-// // export default DonationList;
-
-
-// import React, { useState } from "react";
-// import axios from "axios";
-// import "./donations.css";
-
-// const DonationsList = () => {
-//   const [formData, setFormData] = useState({
-//     donor_name: "",
-//     donor_email: "",
-//     donation_amount: "",
-//     message: "",
-//   });
-//   const [paymentMethod, setPaymentMethod] = useState("");
-//   const [showDetails, setShowDetails] = useState(false);
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value,
-//     });
-//     setShowDetails(false);
-//   };
-
-//   const handlePaymentMethodSelection = (method) => {
-//     setPaymentMethod(method);
-//     setShowDetails(true);
-//   };
-
-//   const handleDonationSubmit = async (event) => {
-//     event.preventDefault();
-//     try {
-//       if (!formData.donation_amount) {
-//         alert("Please enter a donation amount!");
-//         return;
-//       }
-//       console.log("Submitting donation:", formData);
-//       const response = await axios.post(
-//         "http://127.0.0.1:5000/api/v1/donation/create",
-//         formData
-//       );
-//       console.log("Donation submitted:", response.data);
-//       alert("Donation submitted successfully!");
-//       setFormData({
-//         donor_name: "",
-//         donor_email: "",
-//         donation_amount: "",
-//         message: "",
-//       });
-//     } catch (error) {
-//       console.error(
-//         "Donation failed:",
-//         error.response ? error.response.data : error.message
-//       );
-//       alert("Donation failed: Please check your details and try again.");
-//     }
-//   };
-
-//   return (
-//     <div className="donation-container">
-//       <header>
-//         <h1>Hope Field Sports Academy</h1>
-//       </header>
-
-//       <div className="donation-content">
-//         <h2>Support Women with Your Donation</h2>
-//         <form onSubmit={handleDonationSubmit} className="donation-form">
-//           <label htmlFor="donation_amount">Enter Donation Amount:</label>
-//           <input
-//             type="number"
-//             name="donation_amount"
-//             value={formData.donation_amount}
-//             onChange={handleChange}
-//             placeholder="Amount in USD or UGX"
-//             required
-//           />
-
-//           <h3>Choose Payment Method:</h3>
-//           <div className="payment-options">
-//             <button
-//               type="button"
-//               className={`payment-button ${
-//                 paymentMethod === "mobile" ? "active" : ""
-//               }`}
-//               onClick={() => handlePaymentMethodSelection("mobile")}
-//             >
-//               Mobile Money
-//             </button>
-//             <button
-//               type="button"
-//               className={`payment-button ${
-//                 paymentMethod === "bank" ? "active" : ""
-//               }`}
-//               onClick={() => handlePaymentMethodSelection("bank")}
-//             >
-//               Bank Account
-//             </button>
-//           </div>
-
-//           {showDetails && paymentMethod === "mobile" && (
-//             <div className="details-container">
-//               <p>
-//                 Send your donation of{" "}
-//                 <strong>{formData.donation_amount}</strong> to:
-//               </p>
-//               <p className="number">0708094298 (Women in Technology)</p>
-//             </div>
-//           )}
-
-//           {showDetails && paymentMethod === "bank" && (
-//             <div className="details-container">
-//               <p>
-//                 Transfer <strong>{formData.donation_amount}</strong> to:
-//               </p>
-//               <p>Account Name: Hope Field Sports Academy</p>
-//               <p>Account No: 123456789</p>
-//               <p>Bank: ABC Bank, SWIFT: ABCD1234</p>
-//             </div>
-//           )}
-
-//           <label htmlFor="donor_name">Your Name:</label>
-//           <input
-//             type="text"
-//             name="donor_name"
-//             value={formData.donor_name}
-//             onChange={handleChange}
-//             placeholder="Your Name"
-//             required
-//           />
-
-//           <label htmlFor="donor_email">Your Email:</label>
-//           <input
-//             type="email"
-//             name="donor_email"
-//             value={formData.donor_email}
-//             onChange={handleChange}
-//             placeholder="Your Email"
-//             required
-//           />
-
-//           <label htmlFor="message">Message (Optional):</label>
-//           <textarea
-//             name="message"
-//             value={formData.message}
-//             onChange={handleChange}
-//             placeholder="Your message here..."
-//           />
-
-//           <button type="submit" className="submit-button">
-//             Submit Donation
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DonationsList;
-
 import React, { useState } from "react";
+import { FaCopy } from "react-icons/fa"; // Importing copy icon from react-icons
 
 const DonationsList = () => {
   const [amountUSD, setAmountUSD] = useState("");
@@ -297,6 +11,7 @@ const DonationsList = () => {
     name: "",
     email: "",
   });
+  const [copySuccess, setCopySuccess] = useState(""); // State for copy feedback
 
   const handleDonationSelection = (event) => {
     if (event.target.name === "amountUSD") {
@@ -334,6 +49,14 @@ const DonationsList = () => {
     } else {
       alert("Thank you for your donation! Your payment has been received.");
     }
+  };
+
+  // Function to handle copying phone number to clipboard
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(
+      () => setCopySuccess("Copied!"),
+      (err) => setCopySuccess("Failed to copy!")
+    );
   };
 
   return (
@@ -405,7 +128,21 @@ const DonationsList = () => {
               </strong>{" "}
               to the number:
             </p>
-            <p style={styles.number}>0708094298(Women in Technology)</p>
+            <div style={styles.copyContainer}>
+              <p
+                style={styles.number}
+                onClick={() => copyToClipboard("0708094298")}
+              >
+                0708094298 (Women in Technology)
+              </p>
+              <FaCopy
+                onClick={() => copyToClipboard("0708094298")}
+                style={styles.copyIcon}
+              />
+            </div>
+            {copySuccess && (
+              <p style={styles.copySuccessMessage}>{copySuccess}</p>
+            )}
             <p style={styles.waitingMessage}>
               <em>We are eagerly waiting for your donation. Thank you!</em>
             </p>
@@ -484,15 +221,13 @@ const DonationsList = () => {
 
 const styles = {
   container: {
-    // background: "linear-gradient(135deg, #f9fafb, #e0f7fa)",
     backgroundColor: "#f7b852",
-
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     padding: "20px",
-    fontFamily: " sans-serif",
+    fontFamily: "sans-serif",
   },
   contentContainer: {
     background: "#ffffff",
@@ -526,16 +261,7 @@ const styles = {
     fontSize: "1.1rem",
     width: "120px",
     borderRadius: "8px",
-    border: "1px solid #ddd",
-    transition: "all 0.3s ease",
-    outline: "none",
-  },
-  amountInput: {
-    padding: "12px",
-    fontSize: "1.1rem",
-    width: "120px",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
+    border: "1px solid #ddd", // Keeping original border style
     transition: "all 0.3s ease",
     outline: "none",
   },
@@ -552,72 +278,84 @@ const styles = {
     marginTop: "20px",
   },
   paymentButton: {
-    padding: "12px 20px",
-    fontSize: "1rem",
-    border: "1px solid #ccc",
+    padding: "12px 30px",
+    fontSize: "1.2rem",
+    border: "none",
     borderRadius: "8px",
     cursor: "pointer",
-    width: "140px",
-    transition: "all 0.3s ease",
-  },
-  paymentButtonHover: {
-    backgroundColor: "#4CAF50",
-    color: "#fff",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+    transition: "background-color 0.3s",
   },
   detailsContainer: {
     marginTop: "30px",
-    padding: "20px",
-    backgroundColor: "#e3f2fd",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+  },
+  copyContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  copyIcon: {
+    marginLeft: "10px",
+    cursor: "pointer",
+    color: "#333",
   },
   number: {
-    fontSize: "16",
+    fontSize: "1.3rem",
     fontWeight: "bold",
-    color: "orange",
+    color: "#2f7c29",
+    cursor: "pointer",
+    userSelect: "none",
+    marginTop: "10px",
+  },
+  message: {
+    fontSize: "1.1rem",
+    color: "#333",
   },
   waitingMessage: {
-    marginTop: "15px",
-    color: "#4caf50",
+    marginTop: "20px",
     fontStyle: "italic",
+    color: "#666",
   },
   donorInfoContainer: {
-    marginTop: "40px",
+    marginTop: "30px",
   },
   inputField: {
     padding: "12px",
     fontSize: "1.1rem",
     width: "100%",
-    marginBottom: "20px",
     borderRadius: "8px",
     border: "1px solid #ddd",
+    marginBottom: "15px",
   },
   uploadContainer: {
-    marginTop: "20px",
+    marginTop: "30px",
   },
   fileInput: {
     padding: "10px",
-    fontSize: "1rem",
-    marginBottom: "20px",
+    fontSize: "1.1rem",
+    width: "100%",
     borderRadius: "8px",
-    border: "1px solid #ddd",
+    marginBottom: "15px",
   },
   submitButton: {
-    backgroundColor: "orange",
-    color: "white",
-    padding: "12px 24px",
-    borderRadius: "8px",
+    backgroundColor: "#f7b852",
+    padding: "12px 25px",
+    fontSize: "1.1rem",
     border: "none",
+    borderRadius: "8px",
+    color: "#fff",
     cursor: "pointer",
-    fontSize: "1.2rem",
+  },
+  copySuccessMessage: {
+    color: "green",
+    fontSize: "1rem",
+    marginTop: "10px",
   },
   screenshotMessage: {
+    fontSize: "1.1rem",
+    color: "#555",
     marginTop: "10px",
-    color: "#4CAF50",
-    fontSize: "1rem",
   },
 };
 
 export default DonationsList;
+
